@@ -10,9 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const hide = document.getElementById('hide') as HTMLElement;
     const show = document.getElementById('show') as HTMLElement;
 
+    const generateResume = document.getElementById('generateResume') as HTMLInputElement;
 
+    if (generateResume) {
+      generateResume.addEventListener('click', () => {
+          generateResume.textContent = 'Update Resume';
+      });
+  }
 
     // Toggle visibility function
+
 
     function showhide(): void {
         if (hide.style.display === 'none') {
@@ -25,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             Resume.textContent = 'Back';
         }
     }
+
     function Skills_Btn(): void {
         if (skillsSection.style.display === 'none') {
             skillsSection.style.display = 'block';
@@ -71,11 +79,11 @@ function generateResume(): void {
     const skill = (document.getElementById('skill') as HTMLInputElement).value;
     const skill1 = (document.getElementById('skill1') as HTMLInputElement).value;
     const skill2 = (document.getElementById('skill2') as HTMLInputElement).value;
-
+     
 
     // Construct the resume content
     const resumeContent = `
-        <div class="container my-5">
+        <div class="">
       <header class="d-flex justify-content-between">
         <div>
           <h1>${name}</h1>
@@ -98,7 +106,7 @@ function generateResume(): void {
 
 <!-- Education -->
 
-      <button id="toggleEducationBtn" class="btn btn-primary mb-3">Hide Education</button>
+
       
       <section id="EducationSection">
         <h2 class="section-title">Education</h2>
@@ -111,7 +119,7 @@ function generateResume(): void {
 
 <!-- Skills -->
 
-      <button id="toggleSkillsBtn" class="btn btn-primary mb-3">Hide Skills</button>
+
       <section id="skillsSection">
         <h2 class="section-title">Skills</h2>
 
@@ -133,11 +141,18 @@ function generateResume(): void {
         alert("Resume Generated Successfully")
     }
 
+    
     // Display the resume
     const resumeOutput = document.getElementById('resumeOutput') as HTMLDivElement;
     resumeOutput.innerHTML = resumeContent;
     
-}
-
+   
+  }
+  
 // Attach the event listener to the button
-document.getElementById('generateResume')?.addEventListener('click', generateResume);
+let gen = document.getElementById('generateResume')?.addEventListener('click', generateResume);
+
+
+function printCV(){
+  window.print();
+}

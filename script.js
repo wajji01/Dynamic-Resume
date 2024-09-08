@@ -9,6 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const Resume = document.getElementById('Resume');
     const hide = document.getElementById('hide');
     const show = document.getElementById('show');
+    const generateResume = document.getElementById('generateResume');
+    if (generateResume) {
+        // Add an event listener to the button
+        generateResume.addEventListener('click', () => {
+            // Change the button's text content
+            generateResume.textContent = 'Update Resume';
+        });
+    }
     // Toggle visibility function
     function showhide() {
         if (hide.style.display === 'none') {
@@ -64,7 +72,7 @@ function generateResume() {
     const skill2 = document.getElementById('skill2').value;
     // Construct the resume content
     const resumeContent = `
-        <div class="container my-5">
+        <div class="">
       <header class="d-flex justify-content-between">
         <div>
           <h1>${name}</h1>
@@ -87,7 +95,7 @@ function generateResume() {
 
 <!-- Education -->
 
-      <button id="toggleEducationBtn" class="btn btn-primary mb-3">Hide Education</button>
+
       
       <section id="EducationSection">
         <h2 class="section-title">Education</h2>
@@ -100,7 +108,7 @@ function generateResume() {
 
 <!-- Skills -->
 
-      <button id="toggleSkillsBtn" class="btn btn-primary mb-3">Hide Skills</button>
+
       <section id="skillsSection">
         <h2 class="section-title">Skills</h2>
 
@@ -126,4 +134,7 @@ function generateResume() {
     resumeOutput.innerHTML = resumeContent;
 }
 // Attach the event listener to the button
-(_a = document.getElementById('generateResume')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', generateResume);
+let gen = (_a = document.getElementById('generateResume')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', generateResume);
+function printCV() {
+    window.print();
+}
